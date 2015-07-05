@@ -17,7 +17,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 PACKAGE_NAME := qubes-mgmt-salt-base-yamlscript-users
-PACKAGE_CONTENTS := README.rst LICENSE users
+PACKAGE_CONTENTS := README.rst LICENSE pillar users
 FORMULA_DIR ?= /srv/formulas/base
 FORMULA_NAME := $(shell cat formula_name)
 

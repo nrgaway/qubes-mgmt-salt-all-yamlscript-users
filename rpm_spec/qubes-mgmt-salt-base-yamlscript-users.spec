@@ -30,6 +30,12 @@ ln -sf . %{name}-%{version}
 %install
 make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} SYSCONFDIR=%{_sysconfdir}
 
+%post
+mkdir -p /srv/pillar/dom0/qubes
+mkdir -p /srv/pillar/vm/qubes
+ln -sf /srv/formulas/base/users-yamlscript-formula/pillar/qubes/users-dom0.sls /srv/pillar/dom0/qubes/users.sls
+ln -sf /srv/formulas/base/users-yamlscript-formula/pillar/qubes/users-vm.sls /srv/pillar/vm/qubes/users.sls
+
 %files
 %defattr(-,root,root)
 %attr(750, root, root) %dir /srv/formulas/base/%{formula_name}
