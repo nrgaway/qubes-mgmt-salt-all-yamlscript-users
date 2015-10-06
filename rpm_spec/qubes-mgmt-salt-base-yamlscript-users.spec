@@ -12,6 +12,7 @@ URL:	   http://www.qubes-os.org/
 Group:     System administration tools
 BuildArch: noarch
 Requires:  qubes-mgmt-salt-config
+Requires:  qubes-mgmt-salt-base-yamlscript-renderer
 
 %define _builddir %(pwd)
 
