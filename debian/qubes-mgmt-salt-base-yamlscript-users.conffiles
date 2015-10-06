@@ -1,0 +1,2 @@
+srv/pillar/base/users/dom0.sls
+srv/pillar/base/users/vm.sls
