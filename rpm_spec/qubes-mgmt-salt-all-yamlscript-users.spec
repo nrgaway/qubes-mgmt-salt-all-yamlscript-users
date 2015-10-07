@@ -17,7 +17,7 @@
 %define salt_pillar_dir /srv/pillar
 %define salt_formula_dir /srv/formulas
 
-Name:      qubes-mgmt-salt-base-yamlscript-users
+Name:      qubes-mgmt-salt-all-yamlscript-users
 Version:   %{version}
 Release:   %{rel}%{?dist}
 Summary:   A YAMLScript formula to add system users and or groups
@@ -26,8 +26,8 @@ URL:	   http://www.qubes-os.org/
 
 Group:     System administration tools
 BuildArch: noarch
-Requires:  qubes-mgmt-salt-config
-Requires:  qubes-mgmt-salt-base-yamlscript-renderer
+Requires:  qubes-mgmt-salt-base
+Requires:  qubes-mgmt-salt-all-yamlscript-renderer
 
 %define _builddir %(pwd)
 
