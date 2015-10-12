@@ -1,18 +1,24 @@
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
-name:          users-yamlscript-formula
-top_level_dir: users
-saltenv:       base
-version:       3.0.0
-release:       1
-os:            RedHat, Debian, Ubuntu, Suse, FreeBSD
-os_family:     RedHat, Debian, Suse, FreeBSD
-summary:       A YAMLScript formula to add system users and or groups
+package-name:       qubes-mgmt-salt-all-yamlscript-users
+name:               users-yamlscript-formula
+top_level_dir:      users
+formula-files:      README.rst LICENSE users pillar.example
+pillar-files:       pillar
+test-formula-files: README.rst LICENSE pillar.example tests
+test-pillar-files: 
+formula_root:       /srv/formulas
+saltenv:            all
+version:            3.0.0
+release:            1
+os:                 RedHat, Debian, Ubuntu, Suse, FreeBSD
+os_family:          RedHat, Debian, Suse, FreeBSD
+summary:            A YAMLScript formula to add system users and or groups
 description: |
   A YAMLScript formula to add system users and or groups.
 
 state-tops:
-  base:
+  all:
     disable:
       - users
       - users.sudo
@@ -21,7 +27,7 @@ state-tops:
       - tests
   
 pillar-tops:
-  base:
+  all:
     disable:
       - users.dom0
       - users.vm
