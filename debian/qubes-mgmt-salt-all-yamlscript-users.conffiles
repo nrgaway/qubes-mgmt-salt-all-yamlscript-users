@@ -1,2 +1,2 @@
-srv/pillar/base/users/dom0.sls
-srv/pillar/base/users/vm.sls
+srv/pillar/all/users/dom0.sls
+srv/pillar/all/users/vm.sls
