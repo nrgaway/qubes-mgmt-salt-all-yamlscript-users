@@ -46,19 +46,19 @@ qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 # Enable States
-#qubesctl topd.enable %{state_name} saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-#qubesctl topd.enable %{state_name}.sudo saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name} saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.sudo saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
 
 # Enable Pillar States
-#qubesctl topd.enable %{state_name}.dom0 saltenv=%{saltenv} pillar=True -l quiet --out quiet > /dev/null || true
-#qubesctl topd.enable %{state_name}.vm saltenv=%{saltenv} pillar=True -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.dom0 saltenv=%{saltenv} pillar=True -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.vm saltenv=%{saltenv} pillar=True -l quiet --out quiet > /dev/null || true
 
 # Enable Test States
-#qubesctl topd.enable %{state_name} saltenv=test -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name} saltenv=test -l quiet --out quiet > /dev/null || true
 
 # Enable Test Pillar States
-#qubesctl topd.enable %{state_name} saltenv=test pillar=true -l quiet --out quiet > /dev/null || true
-  
+#qubesctl top.enable %{state_name} saltenv=test pillar=true -l quiet --out quiet > /dev/null || true
+
 %files
 %attr(750, root, root) %dir /srv/formulas/all/users-yamlscript-formula
 /srv/formulas/all/users-yamlscript-formula/LICENSE
