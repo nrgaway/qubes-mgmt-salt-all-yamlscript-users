@@ -1,19 +1,9 @@
-%{!?version: %define version %(make get-version)}
-%{!?rel: %define rel %(make get-release)}
-%{!?package_name: %define package_name %(make get-package_name)}
-%{!?package_summary: %define package_summary %(make get-summary)}
-%{!?package_description: %define package_description %(make get-description)}
+%{!?version: %define version %(cat version)}
 
-%{!?formula_name: %define formula_name %(make get-formula_name)}
-%{!?state_name: %define state_name %(make get-state_name)}
-%{!?saltenv: %define saltenv %(make get-saltenv)}
-%{!?pillar_dir: %define pillar_dir %(make get-pillar_dir)}
-%{!?formula_dir: %define formula_dir %(make get-formula_dir)}
-
-Name:      %{package_name}
+Name:      qubes-mgmt-salt-all-yamlscript-users
 Version:   %{version}
-Release:   %{rel}%{?dist}
-Summary:   %{package_summary}
+Release:   1%{?dist}
+Summary:   A YAMLScript formula to add system users and or groups
 License:   GPL 2.0
 URL:	   http://www.qubes-os.org/
 
@@ -25,7 +15,7 @@ Requires:  qubes-mgmt-salt-all-yamlscript-renderer
 %define _builddir %(pwd)
 
 %description
-%{package_description}
+A YAMLScript formula to add system users and or groups.
 
 %prep
 # we operate on the current directory, so no need to unpack anything
@@ -46,18 +36,18 @@ qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 # Enable States
-#qubesctl top.enable %{state_name} saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable %{state_name}.sudo saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable users saltenv=all -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable users.sudo saltenv=all -l quiet --out quiet > /dev/null || true
 
 # Enable Pillar States
-#qubesctl top.enable %{state_name}.dom0 saltenv=%{saltenv} pillar=True -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable %{state_name}.vm saltenv=%{saltenv} pillar=True -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable users.dom0 saltenv=all pillar=True -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable users.vm saltenv=all pillar=True -l quiet --out quiet > /dev/null || true
 
 # Enable Test States
-#qubesctl top.enable %{state_name} saltenv=test -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable users saltenv=test -l quiet --out quiet > /dev/null || true
 
 # Enable Test Pillar States
-#qubesctl top.enable %{state_name} saltenv=test pillar=true -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable users saltenv=test pillar=true -l quiet --out quiet > /dev/null || true
 
 %files
 %defattr(-,root,root)
@@ -69,11 +59,11 @@ qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 /srv/formulas/all/users-yamlscript-formula/users/init.sls
 /srv/formulas/all/users-yamlscript-formula/users/sudo.sls
 
-
 /srv/formulas/test/users-yamlscript-formula/LICENSE
 /srv/formulas/test/users-yamlscript-formula/pillar.example
 /srv/formulas/test/users-yamlscript-formula/README.rst
-/srv/formulas/test/users-yamlscript-formula/users/init.sls
+/srv/formulas/test/users-yamlscript-formula/users/default.sls
+/srv/formulas/test/users-yamlscript-formula/users/sudo.sls
 /srv/formulas/test/users-yamlscript-formula/users/tests.bobby
 /srv/formulas/test/users-yamlscript-formula/users/tests.docker
 /srv/formulas/test/users-yamlscript-formula/users/tests.mel
