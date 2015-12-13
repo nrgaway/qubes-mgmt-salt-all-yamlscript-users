@@ -60,6 +60,8 @@ qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 #qubesctl top.enable %{state_name} saltenv=test pillar=true -l quiet --out quiet > /dev/null || true
 
 %files
+%defattr(-,root,root)
+%doc LICENSE README.rst
 %attr(750, root, root) %dir /srv/formulas/all/users-yamlscript-formula
 /srv/formulas/all/users-yamlscript-formula/LICENSE
 /srv/formulas/all/users-yamlscript-formula/pillar.example
